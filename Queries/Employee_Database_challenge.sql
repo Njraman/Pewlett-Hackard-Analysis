@@ -22,3 +22,10 @@ rt.title
 INTO unique_titles
 FROM retirement_titles as rt
 ORDER BY rt.emp_no, rt.to_date DESC;
+
+-- Creating retiring_titles table
+SELECT COUNT(title), title
+INTO retiring_titles
+FROM unique_titles
+GROUP BY title
+ORDER BY count(title) DESC;
