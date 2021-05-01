@@ -137,7 +137,7 @@ ce.last_name,
 ce.to_date,
 e.gender,
 s.salary
-INTO emp_info
+--INTO emp_info
 FROM current_emp as ce
 INNER JOIN salaries as s
 ON (ce.emp_no = s.emp_no)
@@ -175,3 +175,14 @@ INNER JOIN departments as d
 ON (dm.dept_no=d.dept_no);
 
 
+--Query to get department Retirees
+SELECT ce.emp_no,
+ce.first_name,
+ce.last_name,
+d.dept_name
+INTO dept_info
+FROM current_emp as ce
+INNER JOIN dept_emp AS de
+ON (ce.emp_no = de.emp_no)
+INNER JOIN departments AS d
+ON (de.dept_no = d.dept_no);
